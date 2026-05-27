@@ -1,0 +1,239 @@
+from weasyprint import HTML
+
+shared_styles = """
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    background-color: #ffffff;
+    @bottom-right {
+        content: counter(page);
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 8pt;
+        color: #718096;
+    }
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.5;
+    color: #2d3748;
+    background-color: #ffffff;
+}
+h1 {
+    font-size: 20pt;
+    color: #0f172a;
+    margin: 0 0 5px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+h2 {
+    font-size: 12.5pt;
+    color: #0284c7;
+    margin: 0 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 3px;
+    page-break-after: avoid;
+}
+p {
+    margin: 0 0 10px 0;
+    text-align: justify;
+}
+ul {
+    margin: 0 0 12px 0;
+    padding-left: 20px;
+}
+li {
+    margin-bottom: 4px;
+    text-align: justify;
+}
+.section {
+    margin-bottom: 20px;
+}
+.header-contact {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px double #0f172a;
+}
+.contact-info {
+    font-size: 9.5pt;
+    color: #4b5563;
+    margin-top: 5px;
+}
+.contact-info span {
+    margin: 0 8px;
+}
+.meta-info {
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+.subject-line {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #0f172a;
+    margin-bottom: 15px;
+}
+.signature {
+    margin-top: 25px;
+    page-break-inside: avoid;
+}
+.page-break {
+    page-break-before: always;
+}
+.project-title {
+    font-weight: bold;
+    color: #1e293b;
+}
+.project-meta {
+    font-style: italic;
+    color: #64748b;
+    float: right;
+}
+.clear {
+    clear: both;
+}
+"""
+
+combined_html = f"""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>{shared_styles}</style>
+</head>
+<body>
+
+    <!-- PAGE 1: COVER LETTER -->
+    <div class="header-contact">
+        <h1>Nyangoya Jadson Nyabera</h1>
+        <div class="contact-info">
+            Kitengela, Nairobi <span>|</span> Phone: 0114717983 <span>|</span> Email: nyangoyajadson@gmail.com <span>|</span> LinkedIn: linkedin.com/in/Nyangoyajadson
+        </div>
+    </div>
+
+    <div class="meta-info">
+        <strong>Date:</strong> 27th May 2026<br><br>
+        <strong>The Talent Acquisition Team</strong><br>
+        Cellulant Kenya Limited<br>
+        Nairobi, Kenya
+    </div>
+
+    <div class="subject-line">
+        RE: APPLICATION FOR THE ASSOCIATE ANALYST: CUSTOMER SUCCESS POSITION (REQ #289)
+    </div>
+
+    <p>Dear Hiring Team,</p>
+
+    <p>I am writing to express my strong enthusiasm for the Associate Analyst: Customer Success position at Cellulant, as advertised on your career portal. As a Mechanical Engineering student at the Technical University of Kenya with an extensive baseline in systematic data tracking, technical drafting, and process validation, I am eager to channel my analytical mindset into safeguarding customer satisfaction, resolving transaction irregularities, and optimizing merchant relationships within your digital payments ecosystem.</p>
+
+    <p>Cellulant's leadership in cross-border payments across Africa demands operational analysts who approach challenges with conviction and absolute precision. My engineering training operates heavily on first-principles thinking—breaking down intricate thermodynamic and fluid containment dynamics into predictable, data-backed metrics. This disciplined approach directly transfers to investigating system anomalies, conducting precise transaction reconciliations, and tracking resolution timelines to prevent merchant friction.</p>
+
+    <p>Additionally, my high school background in Drawing and Design has built strong spatial configuration and system mapping skills. This enables me to rapidly learn internal digital architectures, manage ticketing life cycles through platforms like Freshdesk or internal CRM systems, and break down complex technological payment pathways into accessible solutions for diverse clients. I thrive when analyzing data trends to discover the structural root causes of operational service issues.</p>
+
+    <p>Beyond technical aptitude, I bring advanced proficiency across Microsoft Office 365, allowing me to build clear data factsheets, log incidents accurately, and prepare structured activity logs. I am a tech-savvy self-starter who works comfortably under project timelines, values deep integrity, and applies structured listening to address client needs efficiently.</p>
+
+    <p>I am highly motivated to contribute my critical thinking, technical drive, and structured analytical skills to the Customer Success division at Cellulant. Thank you for your time, consideration, and review of my application portfolio.</p>
+
+    <div class="signature">
+        Yours sincerely,<br><br>
+        <strong>Nyangoya Jadson Nyabera</strong><br>
+        Mechanical Engineering Student<br>
+        Technical University of Kenya
+    </div>
+
+    <!-- PAGE 2: CURRICULUM VITAE -->
+    <div class="page-break"></div>
+
+    <div class="header-contact">
+        <h1>Nyangoya Jadson Nyabera</h1>
+        <div class="contact-info">
+            Kitengela, Nairobi <span>|</span> Phone: 0114717983 <span>|</span> Email: nyangoyajadson@gmail.com <span>|</span> LinkedIn: linkedin.com/in/Nyangoyajadson
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Professional Summary</h2>
+        <p>Analytical and process-driven Mechanical Engineering student at the Technical University of Kenya with a strong baseline in structural systems, data monitoring, and technical layout design. Adept at applying mathematical modeling and logic-driven frameworks to audit complex system assemblies, trace structural variables, and resolve technical discrepancies. Demonstrates exceptional research capability, advanced digital proficiency in office suites, and a structured approach to problem-solving. Eager to leverage technical precision, active listening, and a strong ownership mindset to drive data integrity and customer delight as an Associate Operations & Success Analyst.</p>
+    </div>
+
+    <div class="section">
+        <h2>Education</h2>
+        <div>
+            <span class="project-meta">2025 – Present</span>
+            <span class="project-title">B.Eng. in Mechanical Engineering (In Progress)</span><br>
+            <span style="font-style: italic; color: #4b5563;">Technical University of Kenya (TUK)</span>
+            <ul>
+                <li><strong>Relevant Coursework:</strong> Engineering Mathematics (Calculus & Integration), Technical Drafting & Assembly Systems, Fluid Dynamics, Process Thermodynamics.</li>
+                <li><strong>Core Competencies:</strong> Quantitative analysis, mechanical containment troubleshooting, complex algorithmic calculation, and technical workflow blueprinting.</li>
+            </ul>
+        </div>
+        <div style="margin-top: 12px;">
+            <span class="project-title">Kenya Certificate of Secondary Education (KCSE)</span>
+            <ul>
+                <li><strong>Specialization Focus:</strong> Drawing and Design as a core technical discipline.</li>
+                <li><strong>Core Competencies:</strong> System schematics interpretation, data visualization, geometric structural planning, and meticulous detail layout verification.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Technical & Core Competencies</h2>
+        <ul>
+            <li><strong>Data Monitoring & Analytics:</strong> Proven capacity to track operational variables, identify trends, detect structural anomalies, and organize quantitative information.</li>
+            <li><strong>Troubleshooting & Root-Cause Analysis:</strong> Rigorous technical mindset trained to isolate failure points within nested systems and execute logical resolution pathways.</li>
+            <li><strong>Technical Communication:</strong> Highly developed capability to compile detailed factsheets, generate structured data reports, and communicate technical updates clearly to stakeholders.</li>
+            <li><strong>Digital Infrastructure:</strong> Advanced proficiency in Microsoft Office 365 (Word, Excel formulas, PowerPoint, MS Teams) and rapid adaptability to enterprise CRM / ticketing environments.</li>
+            <li><strong>Professional Attributes:</strong> Strong integrity, customer empathy, patience, high resilience under operational pressure, and a proactive ownership mindset regarding deliverables.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Projects & Technical Experience</h2>
+        
+        <div style="margin-bottom: 12px;">
+            <span class="project-meta">Academic Project</span>
+            <span class="project-title">Mechanical Assembly Analysis & Tolerance Validation</span>
+            <div class="clear"></div>
+            <ul>
+                <li>Executed meticulous geometric and volumetric analyses of interconnected industrial assemblies, ensuring 100% adherence to specified structural metrics.</li>
+                <li>Utilized mathematical modeling to trace and log environmental and pressure parameters, optimizing containment stability and tracking historical data variables.</li>
+            </ul>
+        </div>
+
+        <div>
+            <span class="project-meta">Independent Research</span>
+            <span class="project-title">Systems Optimization & Metrics Tracking</span>
+            <div class="clear"></div>
+            <ul>
+                <li>Conducted multi-source data validation to audit operational compliance structures, synthesizing intricate regulatory benchmarks into easily parsed, actionable reporting guidelines.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Referees</h2>
+        <div>
+            <span class="project-title">Leonid Ndungu Mungai</span><br>
+            Engineering Project Partner / Academic Peer<br>
+            Department of Mechanical and Mechatronics Engineering<br>
+            Technical University of Kenya<br>
+            Email: mungaileonid@gmail.com
+        </div>
+    </div>
+
+</body>
+</html>
+"""
+
+with open("cellulant_application_portfolio.html", "w") as f: 
+    f.write(combined_html)
+
+HTML("cellulant_application_portfolio.html").write_pdf("Nyangoya_Jadson_Cellulant_Application.pdf")
+print("Cellulant Application PDF successfully generated.")
